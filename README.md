@@ -9,3 +9,6 @@ Check out my repos if you like them.
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+![ProfileStats](https://github-readme-stats.vercel.app/api?username=Chetan0402&theme=vue-dark&show_icons=true&hide_border=true&count_private=true)
+![LangStats](https://github-readme-stats.vercel.app/api/top-langs/?username=Chetan0402&theme=vue-dark&show_icons=true&hide_border=true&layout=compact)
