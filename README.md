@@ -16,7 +16,3 @@ List of repo's i have contributed to in some way.
 - [quantifying](https://github.com/creativecommons/quantifying)
 - [pandas](https://github.com/pandas-dev/pandas)
 - [tldr](https://github.com/tldr-pages/tldr)
-
-###### Current
-
-[Roadmap](/roadmap.md)
