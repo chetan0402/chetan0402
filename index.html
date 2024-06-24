@@ -13,27 +13,35 @@
             font-family: "Poppins", sans-serif;
             margin: 0;
             padding: 0;
-            background: #0f0f0f;
+            background: url(https://i.pinimg.com/736x/28/11/f1/2811f147535dbd8f5f65a5cd57269f59.jpg);
             color: white;
         }
         nav {
             display: flex;
             justify-content: space-between;
-            background: rgba(153, 153, 153, 0.132);
-            backdrop-filter: blur(10px);
+            background: rgba(135, 135, 135, 0.238);
+            backdrop-filter: blur(5px);
             padding: 10px;
+            margin: 10px 5px;
+            border-radius: 10px;
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
         }
-        main > h1{
+        #name{
             font-family: 'Roboto Mono', monospace;
             text-align: center;
             margin-top: 20vh;
             font-size: 3rem;
             transition: text-shadow 1s;
+        }
+        #name.done{
+            background: linear-gradient(125deg, rgba(0,147,255,1) 0%, rgba(255,0,177,1) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .line{
             height: 100%;
@@ -46,7 +54,62 @@
             display:flex;
         }
         #line-container{
+            display: flex;
             padding: 0 30px;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 1.7em;
+        }
+        #line-container>img{
+            width: 25px;
+        }
+        #info-container{
+            flex:1;
+            margin-right: 15vw;
+        }
+        .info-card-small > h1{
+            font-weight: 400;
+            margin: 0;
+        }
+        .project{
+            background: rgba(135, 135, 135, 0.238);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 10px 10px;
+        }
+        .proj-tags{
+            display:inline;
+        }
+        .proj-name{
+            background: rgb(0,147,255);
+            background: linear-gradient(125deg, rgba(0,147,255,1) 0%, rgba(255,0,177,1) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0;
+            width:fit-content;
+        }
+        .proj-desc{
+            font-size: 20px;
+            font-weight: 100;
+            margin: 20px 0;
+            color:#cccccc;
+        }
+        .proj-tags{
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 0;
+        }
+        .proj-link{
+            display:block;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: white;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -63,20 +126,22 @@
         <section>
             <div id="showcase">
                 <div id="line-container">
+                    <img src="developer.svg">
                     <div class="line"></div>
                 </div>
                 <div id="info-container">
                     <div class="info-card-small">
                         <h2>Skills</h2>
-                        <ul>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>Express</li>
-                            <li>MongoDB</li>
-                        </ul>
+                        <h1>Front-end</h1>
+                        <h1>HTML CSS JS</h1>
+                        <div class="project">
+                            <p class="proj-name">Portfolio</p>
+                            <p class="proj-desc">Example</p>
+                            <div class="proj-tags">HTML</div>
+                            <div class="proj-tags">CSS</div>
+                            <div class="proj-tags">JS</div>
+                            <a href="#" class="proj-link">Github</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,7 +149,7 @@
     </main>
     <script>
         const name="Chetan Sharma";
-        const randomText=generateRandomTextOfNLenght(name.length);
+        const randomText=generateRandomTextOfNLenght(6)+" "+generateRandomTextOfNLenght(6);
         let name_index=0;
         document.addEventListener("DOMContentLoaded",()=>{
             const name_element=document.querySelector("#name");
@@ -99,7 +164,8 @@
             if(name_index<name.length){
                 setTimeout(typeEffect,100);
             }else{
-                name_element.style.textShadow="0 0 10px white";
+                name_element.classList.add("done");
+                //name_element.style.textShadow="0 0 10px white";
             }
         }
 
