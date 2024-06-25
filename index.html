@@ -24,6 +24,9 @@
             padding: 10px;
             margin: 10px 5px;
             border-radius: 10px;
+            position: sticky;
+            z-index: 1;
+            top: 0;
         }
         nav a {
             color: white;
@@ -89,6 +92,7 @@
             backdrop-filter: blur(5px);
             border-radius: 10px;
             padding: 10px 10px;
+            margin: 10px auto;
         }
         .proj-tags{
             display:inline;
@@ -124,14 +128,19 @@
             color: white;
             text-decoration: none;
         }
+        #name-in-bar{
+            opacity:0;
+            transition: all 1s;
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="/">Home</a>
+        <span id="name-in-bar">Chetan Sharma</span>
         <div class="social">
-            <a href="https://github.com/chetan0402">Github</a>
-            <a href="#linkedin">LinkedIn</a>
+            <a href="https://github.com/chetan0402" target="_blank">Github</a>
+            <a href="#linkedin" target="_blank">LinkedIn</a>
         </div>
     </nav>
     <main>
@@ -152,7 +161,73 @@
                             <div class="proj-tags">HTML</div>
                             <div class="proj-tags">CSS</div>
                             <div class="proj-tags">JS</div>
-                            <a href="https://chetan0402.github.io/chetan0402" class="proj-link">Github</a>
+                            <a href="https://chetan0402.github.io/chetan0402" class="proj-link" target="_blank">Website</a>
+                        </div>
+                    </div>
+                    <div class="info-card-small">
+                        <div class="project">
+                            <p class="proj-name">CodeRush - Quiz Website</p>
+                            <p class="proj-desc">A Quiz website.</p>
+                            <div class="proj-tags">HTML</div>
+                            <div class="proj-tags">CSS</div>
+                            <div class="proj-tags">JS</div>
+                            <a href="https://chetan0402.github.io/coderush" class="proj-link" target="_blank">Website</a>
+                        </div>
+                    </div>
+                    <div class="info-card-small">
+                        <div class="project">
+                            <p class="proj-name">E-Cell Website Clone Task</p>
+                            <p class="proj-desc">Screenshots of a website was given and we were asked to recreate it with any extra elements that we would like.</p>
+                            <div class="proj-tags">HTML</div>
+                            <div class="proj-tags">CSS</div>
+                            <div class="proj-tags">JS</div>
+                            <a href="https://ecell-task-six.vercel.app/" class="proj-link" target="_blank">Website</a>
+                        </div>
+                    </div>
+                    <div class="info-card-small">
+                        <div class="project">
+                            <p class="proj-name">Todo App</p>
+                            <p class="proj-desc">TODO app made while learning MERN stack.</p>
+                            <div class="proj-tags">MongoDB</div>
+                            <div class="proj-tags">Express.js</div>
+                            <div class="proj-tags">React</div>
+                            <div class="proj-tags">JS</div>
+                            <a href="https://github.com/chetan0402/MERN-todo" class="proj-link" target="_blank">Repo</a>
+                        </div>
+                    </div>
+                    <div class="info-card-small">
+                        <h1>Python</h1>
+                        <div class="project">
+                            <p class="proj-name">BatteryNotification</p>
+                            <p class="proj-desc">A python program to help you remain when to plug and un-plug your device</p>
+                            <div class="proj-tags">Python</div>
+                            <div class="proj-tags">Windows</div>
+                            <div class="proj-tags">Qt6</div>
+                            <div class="proj-tags">Web</div>
+                            <a href="https://github.com/chetan0402/BatteryNotification" class="proj-link" target="_blank">Repo</a>
+                        </div>
+                    </div>
+                    <div class="info-card-small">
+                        <div class="project">
+                            <p class="proj-name">SentimentalCoffee</p>
+                            <p class="proj-desc">A python project which performs sentimental analysis on given revews and displays them to client</p>
+                            <div class="proj-tags">Python</div>
+                            <div class="proj-tags">AI</div>
+                            <div class="proj-tags">Web</div>
+                            <div class="proj-tags">SQL</div>
+                            <a href="https://github.com/chetan0402/SentimentalCoffee" class="proj-link" target="_blank">Repo</a>
+                        </div>
+                    </div>
+                    <div class="info-card-small">
+                        <div class="project">
+                            <p class="proj-name">TidyTrack</p>
+                            <p class="proj-desc">Currently in-progress</p>
+                            <div class="proj-tags">Python</div>
+                            <div class="proj-tags">Flask</div>
+                            <div class="proj-tags">FastAPI</div>
+                            <div class="proj-tags">SQL</div>
+                            <div class="proj-tags">DevOps</div>
+                            <a href="https://tt.manit.ac.in" class="proj-link" target="_blank">Website</a>
                         </div>
                     </div>
                 </div>
@@ -173,6 +248,16 @@
             tags.forEach(tag=>{
                 tag.style.backgroundColor=`hsl(${Math.floor(window.crypto.getRandomValues(new Uint16Array(1))*360/65535)},100%,40%)`;
             })
+        })
+        document.addEventListener("scroll",()=>{
+            const name_element=document.querySelector("#name");
+            const name_in_bar=document.querySelector("#name-in-bar");
+            if(name_element.getBoundingClientRect().bottom<0){
+                name_in_bar.style.opacity=1;
+            }else{
+                name_in_bar.style.opacity=0;
+            }
+        
         })
 
         function typeEffect(){
