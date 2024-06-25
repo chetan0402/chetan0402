@@ -35,13 +35,25 @@
             text-align: center;
             margin-top: 20vh;
             font-size: 3rem;
-            transition: text-shadow 1s;
+            transition: all 1s;
+        }
+        @keyframes nameEffect{
+            0%{
+                background: white;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            100%{
+                background: linear-gradient(125deg, rgba(0,147,255,1) 0%, rgba(255,0,177,1) 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
         }
         #name.done{
-            background: linear-gradient(125deg, rgba(0,147,255,1) 0%, rgba(255,0,177,1) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            animation: nameEffect 1s;
+            animation-fill-mode: forwards;
         }
         .line{
             height: 100%;
