@@ -94,9 +94,6 @@
             padding: 10px 10px;
             margin: 10px auto;
         }
-        .proj-tags{
-            display:inline;
-        }
         .proj-name{
             background: rgb(0,147,255);
             background: linear-gradient(125deg, rgba(0,147,255,1) 0%, rgba(255,0,177,1) 100%);
@@ -118,7 +115,8 @@
             background: rgba(255, 255, 255, 0.2);
             padding: 5px 10px;
             border-radius: 5px;
-            margin: 0;
+            display:inline-block;
+            margin: 3px auto;
         }
         .proj-link{
             display:block;
@@ -129,8 +127,37 @@
             text-decoration: none;
         }
         #name-in-bar{
+            display:none;
             opacity:0;
             transition: all 1s;
+        }
+        @media screen and (max-width: 460px){
+            #showcase{
+                padding-left: 0;
+            }
+        }
+        @media screen and (max-width: 425px){
+            #name{
+                font-size: 2rem;
+                margin-bottom: 20vh;
+            }
+            #line-container{
+                display:none;
+            }
+            #info-container{
+                margin: auto 4vw;
+            }
+            .info-card-small>h2{
+                display:none;
+            }
+            .project{
+                padding-bottom: 2em;
+            }
+            .proj-link{
+                bottom:5px;
+                left:10px;
+                top:auto;
+            }
         }
     </style>
 </head>
@@ -252,10 +279,13 @@
         document.addEventListener("scroll",()=>{
             const name_element=document.querySelector("#name");
             const name_in_bar=document.querySelector("#name-in-bar");
+            if(window.innerWidth<460){return;}
             if(name_element.getBoundingClientRect().bottom<0){
+                name_in_bar.style.display="block";
                 name_in_bar.style.opacity=1;
             }else{
                 name_in_bar.style.opacity=0;
+                name_in_bar.style.display="none";
             }
         
         })
