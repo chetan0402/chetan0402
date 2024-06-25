@@ -127,9 +127,8 @@
             text-decoration: none;
         }
         #name-in-bar{
-            display:none;
             opacity:0;
-            transition: all 1s;
+            transition: opacity 1s;
         }
         @media screen and (max-width: 460px){
             #showcase{
@@ -279,15 +278,31 @@
         document.addEventListener("scroll",()=>{
             const name_element=document.querySelector("#name");
             const name_in_bar=document.querySelector("#name-in-bar");
-            if(window.innerWidth<460){return;}
-            if(name_element.getBoundingClientRect().bottom<0){
-                name_in_bar.style.display="block";
+            if(window.innerWidth<460){
+                name_in_bar.style.display="none";
+                return;
+            }
+            if(name_element.getBoundingClientRect().bottom<0 && name_in_bar.style.display!="none"){
                 name_in_bar.style.opacity=1;
             }else{
-                name_in_bar.style.opacity=0;
                 name_in_bar.style.display="none";
+                name_in_bar.style.opacity=0;
+                setTimeout(()=>{name_in_bar.style.display="block";},1000);
             }
         
+        })
+        document.addEventListener("mousemove",(e)=>{
+            const projects=document.querySelectorAll(".project");
+            projects.forEach(project=>{
+                const rect=project.getBoundingClientRect();
+                if(e.clientX>rect.left && e.clientX<rect.right && e.clientY>rect.top && e.clientY<rect.bottom){
+                    const x=(e.clientX-rect.left)/(rect.right-rect.left);
+                    const y=(e.clientY-rect.top)/(rect.bottom-rect.top);
+                    project.style.background="radial-gradient(circle at "+x*100+"% "+y*100+"%, rgba(135, 135, 135, 0.4) 0%, rgba(135, 135, 135, 0.238) 100%)";
+                }else{
+                    project.style.background="rgba(135, 135, 135, 0.238)";
+                }
+            })
         })
 
         function typeEffect(){
