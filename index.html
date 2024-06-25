@@ -82,6 +82,7 @@
         .info-card-small > h1{
             font-weight: 400;
             margin: 0;
+            font-size: 50px;
         }
         .project{
             background: rgba(135, 135, 135, 0.238);
@@ -129,7 +130,7 @@
     <nav>
         <a href="/">Home</a>
         <div class="social">
-            <a href="#github">Github</a>
+            <a href="https://github.com/chetan0402">Github</a>
             <a href="#linkedin">LinkedIn</a>
         </div>
     </nav>
@@ -145,14 +146,13 @@
                     <div class="info-card-small">
                         <h2>Skills</h2>
                         <h1>Front-end</h1>
-                        <h1>HTML CSS JS</h1>
                         <div class="project">
                             <p class="proj-name">Portfolio</p>
-                            <p class="proj-desc">Example</p>
+                            <p class="proj-desc">A website showing my projects</p>
                             <div class="proj-tags">HTML</div>
                             <div class="proj-tags">CSS</div>
                             <div class="proj-tags">JS</div>
-                            <a href="#" class="proj-link">Github</a>
+                            <a href="https://chetan0402.github.io/chetan0402" class="proj-link">Github</a>
                         </div>
                     </div>
                 </div>
@@ -168,6 +168,12 @@
             name_element.innerHTML=randomText;
             setTimeout(typeEffect,100);
         })
+        document.addEventListener("DOMContentLoaded",()=>{
+            const tags=document.querySelectorAll(".proj-tags");
+            tags.forEach(tag=>{
+                tag.style.backgroundColor=`hsl(${Math.floor(window.crypto.getRandomValues(new Uint16Array(1))*360/65535)},100%,40%)`;
+            })
+        })
 
         function typeEffect(){
             const name_element=document.querySelector("#name");
@@ -177,7 +183,6 @@
                 setTimeout(typeEffect,100);
             }else{
                 name_element.classList.add("done");
-                //name_element.style.textShadow="0 0 10px white";
             }
         }
 
