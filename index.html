@@ -291,18 +291,25 @@
             }
         
         })
-        document.addEventListener("mousemove",(e)=>{
-            const projects=document.querySelectorAll(".project");
-            projects.forEach(project=>{
-                const rect=project.getBoundingClientRect();
-                if(e.clientX>rect.left && e.clientX<rect.right && e.clientY>rect.top && e.clientY<rect.bottom){
-                    const x=(e.clientX-rect.left)/(rect.right-rect.left);
-                    const y=(e.clientY-rect.top)/(rect.bottom-rect.top);
-                    project.style.background="radial-gradient(circle at "+x*100+"% "+y*100+"%, rgba(135, 135, 135, 0.4) 0%, rgba(135, 135, 135, 0.238) 100%)";
-                }else{
-                    project.style.background="rgba(135, 135, 135, 0.238)";
-                }
-            })
+        let e = {clientX:0,clientY:0};
+        document.addEventListener("mousemove",(event)=>{
+            e=event;
+        })
+        document.addEventListener("DOMContentLoaded",()=>{
+            setInterval(()=>{
+                const projects=document.querySelectorAll(".project");
+                projects.forEach(project=>{
+                    const rect=project.getBoundingClientRect();
+                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+
+                        const x = (e.clientX - rect.left) / (rect.right - rect.left);
+                        const y = (e.clientY - rect.top) / (rect.bottom - rect.top);
+                        project.style.background = "radial-gradient(circle at " + x * 100 + "% " + y * 100 + "%, rgba(135, 135, 135, 0.4) 0%, rgba(135, 135, 135, 0.238) 100%)";
+                    } else {
+                        project.style.background = "rgba(135, 135, 135, 0.238)";
+                    }
+                });}
+            ,10);
         })
 
         function typeEffect(){
